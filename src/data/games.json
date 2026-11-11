@@ -1,0 +1,37 @@
+[
+  {
+    "id": "sum-sprint",
+    "name": "Sum Sprint",
+    "subject": "math",
+    "grade": "2",
+    "summary": "A short arcade warm-up for addition."
+  },
+  {
+    "id": "word-trail",
+    "name": "Word Trail",
+    "subject": "english",
+    "grade": "3",
+    "summary": "A calm pass through words and spelling."
+  },
+  {
+    "id": "map-hop",
+    "name": "Map Hop",
+    "subject": "geography",
+    "grade": "4",
+    "summary": "Find places on a simple map."
+  },
+  {
+    "id": "lab-notes",
+    "name": "Lab Notes",
+    "subject": "science",
+    "grade": "5",
+    "summary": "Match a question to what you observe."
+  },
+  {
+    "id": "time-post",
+    "name": "Time Post",
+    "subject": "history",
+    "grade": "6",
+    "summary": "Place events in the order they happened."
+  }
+]

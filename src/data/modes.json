@@ -1,0 +1,17 @@
+[
+  {
+    "id": "learn",
+    "label": "Learn",
+    "summary": "Start with a short lesson."
+  },
+  {
+    "id": "study",
+    "label": "Study",
+    "summary": "Go back over the idea."
+  },
+  {
+    "id": "practice",
+    "label": "Practice",
+    "summary": "Try a few problems."
+  }
+]

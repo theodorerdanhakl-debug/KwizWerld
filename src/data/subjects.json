@@ -1,0 +1,37 @@
+[
+  {
+    "id": "math",
+    "name": "Math",
+    "subject": "math",
+    "grade": "K-12",
+    "summary": "Numbers, shapes, and patterns."
+  },
+  {
+    "id": "english",
+    "name": "English",
+    "subject": "english",
+    "grade": "K-12",
+    "summary": "Reading, writing, and words."
+  },
+  {
+    "id": "geography",
+    "name": "Geography",
+    "subject": "geography",
+    "grade": "K-12",
+    "summary": "Places, maps, and the world."
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "subject": "science",
+    "grade": "K-12",
+    "summary": "Questions about how things work."
+  },
+  {
+    "id": "history",
+    "name": "History",
+    "subject": "history",
+    "grade": "K-12",
+    "summary": "People and events through time."
+  }
+]
