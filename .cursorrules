@@ -1,0 +1,158 @@
+# KwizWerld!
+
+KwizWerld! is an educational web game for grades K–12. Learners study and practice Math, English, Geography, Science, and History, play educational arcade games, earn EXP and diamonds, and spend diamonds on a gacha that customizes their profile.
+
+Write for that product. Keep the tone clear and calm for school-age players. Teach the subject; do not pressure, shame, or upsell.
+
+## Stack
+
+Use only this stack unless the task says otherwise:
+
+- React
+- TypeScript in strict mode (`strict`, `noImplicitOverride`, `noFallthroughCasesInSwitch`; do not weaken these)
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Zustand
+- React Router
+- Supabase (auth, database, RLS, RPC, and Edge Functions)
+- Phaser, only inside arcade games
+
+Do not add another UI kit, state library, router, animation library, or game engine. Do not introduce a payment SDK.
+
+TypeScript rules:
+
+- No `any`. No untyped props. Export a named props type for every component.
+- Prefer `unknown` plus a narrow check at boundaries (JSON, RPC payloads, Phaser events).
+- Generate Supabase types and use them for every query and RPC. Do not hand-write a second copy of a table that can drift.
+- Do not silence the compiler with assertions to ship past missing data. Handle the loading and error states.
+
+## Folder structure
+
+App code lives under `src/`. Supabase CLI files live at the repo root, where the CLI expects them.
+
+```
+src/
+  components/     # small, reusable UI
+  pages/          # one route per file; compose components
+  store/          # Zustand stores (UI and cached server views only)
+  data/           # curriculum and display content as JSON
+  hooks/          # shared React hooks
+  utils/          # pure helpers
+  games/          # Phaser arcade games and their React mounts
+  supabase/       # browser client and typed wrappers that call RPC
+supabase/
+  migrations/     # schema, RLS, security-definer functions
+  functions/      # Edge Functions when a transaction needs more than SQL
+```
+
+Put a new file in the folder that matches its job. Do not grow a catch-all `lib/` or drop feature code in `src/` root.
+
+Routes are declared in one place and render pages from `src/pages`. A page fetches or selects data and composes components. It does not contain a large JSX tree of its own.
+
+## Components and content
+
+Keep components small and single-purpose. One component per file. Split a file when it mixes data loading, layout, and more than one section, or when it grows past a screenful.
+
+Curriculum content is data, not JSX. Lessons, questions, passages, map prompts, explanations, grade bands, and cosmetic display copy live in `src/data` as JSON so a new item does not require a component edit.
+
+Shape content so it can grow without code changes:
+
+- Every item names its `subject` (`math` | `english` | `geography` | `science` | `history`) and `grade` (`K` through `12`).
+- Group files by subject and grade, for example `src/data/math/grade-3/addition.json`.
+- Import JSON through typed modules. Validate at the boundary if a file is loaded loosely.
+- Cosmetic JSON may hold `id`, display name, and art key only. Price, drop weight, and ownership live on the server.
+
+Do not hardcode question banks, lesson copy, or cosmetic names inside components.
+
+## Design
+
+The interface is premium, minimal, and uncluttered. It should feel quiet and deliberate.
+
+- Give every screen generous whitespace. Fewer elements, more room between them.
+- One primary action per screen. Exactly one control uses the primary button style. Everything else is quiet (text or ghost). If two actions are equally important, split the flow into two screens.
+- No walls of text. A heading, one short supporting sentence, and the action are enough. Break longer teaching copy into steps, short blocks, or a next screen. The lesson text itself stays chunked the same way.
+- At most three visual accents on a screen. An accent is any non-neutral hue (brand, correct, incorrect, reward, warning). Neutral background, text, hairlines, and muted labels do not count. Do not add a fourth hue to decorate.
+- One idea per view. Do not combine a lesson, a leaderboard, a shop, and a profile editor on one screen.
+- Icons and motion support the action. They are not decoration piled on the layout.
+- Empty, loading, and error states are short and specific. They offer the one next step.
+
+## Color
+
+Light mode and dark mode must both look correct on every screen, including Phaser games.
+
+- Define every color as a CSS custom property. Light values live on `:root`. Dark values live on the dark-theme selector (prefer `[data-theme="dark"]` on the document element).
+- Map those variables into Tailwind theme tokens so components use utilities such as `bg-canvas`, `text-ink`, and `border-line`.
+- In components, pages, hooks, and the React shells around games, color comes only from those tokens or from `var(--token-name)`.
+- Do not hardcode colors. Forbidden in UI code: hex, `rgb`, `hsl`, named CSS colors, Tailwind raw palette utilities (`bg-blue-500`, `text-zinc-900`), and inline `style` color or background.
+- Phaser paints from the same CSS variables, read at runtime with `getComputedStyle`. A theme change restyles the canvas. Do not keep a second palette of numeric colors inside a scene.
+- Semantic roles stay stable across themes (`canvas`, `ink`, `muted`, `line`, `accent`, `good`, `bad`, `reward`). Do not invent one-off colors per screen.
+
+## Motion
+
+Every animation respects `prefers-reduced-motion`.
+
+- Wrap the app in Framer Motion’s `MotionConfig` with `reducedMotion="user"`.
+- Before a hand-authored animation, entrance, exit, or layout shift, honor reduced motion. Use a shared hook in `src/hooks` that listens to `(prefers-reduced-motion: reduce)`.
+- CSS animation and transition belong inside `@media (prefers-reduced-motion: no-preference)`, or a matching `reduce` block sets their duration near zero. Include `scroll-behavior`.
+- When the user prefers reduced motion: cut movement, parallax, bounce, shake, and looping flourishes. Change state directly, or use a brief opacity change. Do not replace a banned motion with a different large motion.
+- Phaser games check the same media query. Skip juice (screen shake, particle bursts, sliding boards) and snap to the new state instead.
+- Do not autoplay aggressive motion on a timer. Looping animation is rare and still disabled under reduced motion.
+
+## EXP, diamonds, and gacha
+
+All EXP, diamond, and gacha logic is server-authoritative. The client displays what Supabase returns. It never decides a reward or a roll.
+
+The browser must not:
+
+- Compute EXP or diamonds earned.
+- Decide whether an answer, lesson, or game “counts.”
+- Choose gacha odds, weights, pity, or the item that drops.
+- Send a reward amount, a new balance, or an item id for the server to trust.
+- Write economy columns (balances, inventory, grant logs) through a normal table update.
+- Apply an optimistic balance change. Wait for the RPC response, then show it.
+
+The server must:
+
+- Expose mutations only as `security definer` RPC or Edge Functions. The signed-in user is taken from auth, not from the payload.
+- Accept facts about play (lesson id, answer attempt, game session id, gacha banner id, idempotency key). Reject client-supplied amounts and probabilities.
+- Validate the attempt against stored content and session state (the lesson exists, the session was issued by the server, the action was not already rewarded).
+- Grant EXP and diamonds itself, deduct diamonds itself, and roll the gacha with server-side randomness and server-side odds.
+- Be idempotent. A retry of the same completion or pull returns the original result and does not grant twice.
+- Return the new balances, the grant, and any cosmetic unlocked. The client renders that payload.
+
+Row Level Security:
+
+- Players may read their own profile, balances, and inventory.
+- Players may not insert, update, or delete economy or inventory rows directly.
+- Odds tables, grant tables, and service keys are not readable by the client.
+- Do not disable RLS, add a permissive “for now” policy, or use the service role in the browser.
+
+Where the code lives:
+
+- Reward and roll functions live in `supabase/migrations` or `supabase/functions`.
+- `src/store` may cache the last server snapshot for display. It must not mint currency or items.
+- `src/games` reports what happened (score, duration, answers, session id) through its React mount. The mount calls RPC. The scene never imports reward logic.
+- If display JSON and the server disagree about a price, a weight, or an item, the server wins.
+
+## Diamonds
+
+No real-money purchases anywhere. No checkout, no payment provider, no “buy diamonds,” no gift cards, no ads that pay out currency, no link-out to a store.
+
+Diamonds are earned only through play the server has validated (lessons, study, practice, arcade games, and similar in-app activities). Spending them is limited to the profile-customization gacha. Do not add a second sink that implies a cash shop.
+
+Present the gacha calmly. It customizes a profile. It does not gate lessons, accuracy, or EXP. No scarcity timers, no “last chance” copy, no paid odds.
+
+## Games
+
+Each arcade game is a folder in `src/games/<name>` with a Phaser scene and a thin React mount. The mount creates and destroys the game on route change.
+
+Games may be playful, but they still follow the color tokens, the three-accent limit, reduced motion, and the one-primary-action rule on their surrounding page. A game does not award EXP or diamonds on its own.
+
+## Defaults when a task is ambiguous
+
+1. Keep rewards on the server.
+2. Keep colors on tokens so both themes work.
+3. Honor reduced motion.
+4. Remove UI before adding UI.
+5. Put new curriculum in `src/data`, not in a component.
