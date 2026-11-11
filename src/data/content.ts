@@ -41,7 +41,7 @@ function isSubjectId(value: unknown): value is SubjectId {
   return typeof value === 'string' && SUBJECT_IDS.some((id) => id === value)
 }
 
-function isGrade(value: unknown): value is Grade {
+export function isGrade(value: unknown): value is Grade {
   return typeof value === 'string' && GRADES.some((grade) => grade === value)
 }
 

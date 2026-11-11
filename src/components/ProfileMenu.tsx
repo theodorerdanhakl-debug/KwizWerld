@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useSessionStore } from '../store/session'
 import { Avatar } from './Avatar'
 
 export function ProfileMenu() {
   const [open, setOpen] = useState(false)
+  const [pending, setPending] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const firstItemRef = useRef<HTMLAnchorElement>(null)
   const location = useLocation()
+  const username = useSessionStore((state) => state.profile?.username ?? 'Player')
 
   useEffect(() => {
     setOpen(false)
@@ -44,7 +47,7 @@ export function ProfileMenu() {
         aria-label={open ? 'Close account menu' : 'Open account menu'}
         onClick={() => setOpen((current) => !current)}
       >
-        <Avatar name="Player" />
+        <Avatar name={username} />
       </button>
       {open ? (
         <div
@@ -58,6 +61,20 @@ export function ProfileMenu() {
           <Link role="menuitem" to="/settings" className="menu-item">
             Settings
           </Link>
+          <button
+            type="button"
+            role="menuitem"
+            className="menu-item w-full text-left"
+            disabled={pending}
+            onClick={() => {
+              setPending(true)
+              void useSessionStore.getState().signOut().then(() => {
+                setPending(false)
+              })
+            }}
+          >
+            {pending ? 'Logging out' : 'Log out'}
+          </button>
         </div>
       ) : null}
     </div>

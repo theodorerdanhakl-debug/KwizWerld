@@ -83,7 +83,8 @@ The interface is premium, minimal, and uncluttered. It should feel quiet and del
 Light mode and dark mode must both look correct on every screen, including Phaser games.
 
 - Define every color as a CSS custom property. Light values live on `:root`. Dark values live on `html.dark`. Toggle theme by adding or removing the `dark` class on the document element.
-- Persist the choice as `light`, `dark`, or `system` under localStorage key `kwizwerld.theme.v1`. A blocking script in the document head sets the class before first paint.
+- Persist the choice as `light`, `dark`, or `system` under localStorage key `kwizwerld.theme.v1`. A blocking script in the document head sets the class before first paint. After a profile loads, write that profile's theme back into the same key.
+- The signed-in user may update theme, sound, music, reduced motion, username, and grade. EXP, diamonds, level, and cosmetics stay server-owned.
 - Map those variables into Tailwind theme tokens. Components use utilities such as `bg-background`, `bg-surface`, `bg-surface-elevated`, `text-text`, `text-muted`, and `border-border`.
 - In components, pages, hooks, and the React shells around games, color comes only from those tokens or from `var(--token-name)`.
 - Do not hardcode colors. Forbidden in UI code: hex, `rgb`, `hsl`, named CSS colors, Tailwind raw palette utilities (`bg-blue-500`, `text-zinc-900`), and inline `style` color or background.

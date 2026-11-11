@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { RequireAuth } from './components/RequireAuth'
 import { GamePage } from './pages/GamePage'
 import { GamesPage } from './pages/GamesPage'
 import { GachaPage } from './pages/GachaPage'
@@ -14,19 +15,21 @@ import { SubjectPage } from './pages/SubjectPage'
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/subject/:subjectId" element={<SubjectPage />} />
-      <Route path="/subject/:subjectId/:mode" element={<SubjectPage />} />
-      <Route path="/games" element={<GamesPage />} />
-      <Route path="/games/:gameId" element={<GamePage />} />
-      <Route path="/gacha" element={<GachaPage />} />
-      <Route path="/leaderboard" element={<LeaderboardPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/settings" element={<SettingsPage />} />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route element={<RequireAuth />}>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/subject/:subjectId" element={<SubjectPage />} />
+        <Route path="/subject/:subjectId/:mode" element={<SubjectPage />} />
+        <Route path="/games" element={<GamesPage />} />
+        <Route path="/games/:gameId" element={<GamePage />} />
+        <Route path="/gacha" element={<GachaPage />} />
+        <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
     </Routes>
   )
 }

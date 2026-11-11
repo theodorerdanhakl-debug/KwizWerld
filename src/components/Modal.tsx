@@ -7,9 +7,10 @@ export type ModalProps = {
   title: string
   onClose: () => void
   children: ReactNode
+  actions?: ReactNode
 }
 
-export function Modal({ open, title, onClose, children }: ModalProps) {
+export function Modal({ open, title, onClose, children, actions }: ModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleId = useId()
 
@@ -34,9 +35,7 @@ export function Modal({ open, title, onClose, children }: ModalProps) {
         {title}
       </h2>
       <div className="mt-4 text-muted">{children}</div>
-      <div className="mt-8">
-        <Button onClick={onClose}>Close</Button>
-      </div>
+      <div className="mt-8">{actions ?? <Button onClick={onClose}>Close</Button>}</div>
     </dialog>,
     document.body,
   )
