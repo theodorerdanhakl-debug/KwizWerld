@@ -70,6 +70,7 @@ Do not hardcode question banks, lesson copy, or cosmetic names inside components
 The interface is premium, minimal, and uncluttered. It should feel quiet and deliberate.
 
 - Give every screen generous whitespace. Fewer elements, more room between them.
+- Surfaces and controls use a 2xl corner radius.
 - One primary action per screen. Exactly one control uses the primary button style. Everything else is quiet (text or ghost). If two actions are equally important, split the flow into two screens.
 - No walls of text. A heading, one short supporting sentence, and the action are enough. Break longer teaching copy into steps, short blocks, or a next screen. The lesson text itself stays chunked the same way.
 - At most three visual accents on a screen. An accent is any non-neutral hue (brand, correct, incorrect, reward, warning). Neutral background, text, hairlines, and muted labels do not count. Do not add a fourth hue to decorate.
@@ -81,18 +82,21 @@ The interface is premium, minimal, and uncluttered. It should feel quiet and del
 
 Light mode and dark mode must both look correct on every screen, including Phaser games.
 
-- Define every color as a CSS custom property. Light values live on `:root`. Dark values live on the dark-theme selector (prefer `[data-theme="dark"]` on the document element).
-- Map those variables into Tailwind theme tokens so components use utilities such as `bg-canvas`, `text-ink`, and `border-line`.
+- Define every color as a CSS custom property. Light values live on `:root`. Dark values live on `html.dark`. Toggle theme by adding or removing the `dark` class on the document element.
+- Persist the choice as `light`, `dark`, or `system` under localStorage key `kwizwerld.theme.v1`. A blocking script in the document head sets the class before first paint.
+- Map those variables into Tailwind theme tokens. Components use utilities such as `bg-background`, `bg-surface`, `bg-surface-elevated`, `text-text`, `text-muted`, and `border-border`.
 - In components, pages, hooks, and the React shells around games, color comes only from those tokens or from `var(--token-name)`.
 - Do not hardcode colors. Forbidden in UI code: hex, `rgb`, `hsl`, named CSS colors, Tailwind raw palette utilities (`bg-blue-500`, `text-zinc-900`), and inline `style` color or background.
 - Phaser paints from the same CSS variables, read at runtime with `getComputedStyle`. A theme change restyles the canvas. Do not keep a second palette of numeric colors inside a scene.
-- Semantic roles stay stable across themes (`canvas`, `ink`, `muted`, `line`, `accent`, `good`, `bad`, `reward`). Do not invent one-off colors per screen.
+- Semantic roles stay stable across themes: `background`, `surface`, `surface-elevated`, `text`, `muted-text`, `border`, `accent`, and `on-accent`. Subject accents (`math` blue, `english` coral, `geography` green, `science` violet, `history` amber) and currency (`exp` electric blue, `diamond` cyan/aqua) are tokens too, with separate light and dark values.
+- A screen still shows at most three hues. EXP and diamonds count. Set the page accent from one subject with `data-subject`. Do not paint every subject in its own color on the same screen.
 
 ## Motion
 
 Every animation respects `prefers-reduced-motion`.
 
 - Wrap the app in Framer Motion’s `MotionConfig` with `reducedMotion="user"`.
+- UI transitions are 200–300ms. The default duration is 240ms.
 - Before a hand-authored animation, entrance, exit, or layout shift, honor reduced motion. Use a shared hook in `src/hooks` that listens to `(prefers-reduced-motion: reduce)`.
 - CSS animation and transition belong inside `@media (prefers-reduced-motion: no-preference)`, or a matching `reduce` block sets their duration near zero. Include `scroll-behavior`.
 - When the user prefers reduced motion: cut movement, parallax, bounce, shake, and looping flourishes. Change state directly, or use a brief opacity change. Do not replace a banned motion with a different large motion.
