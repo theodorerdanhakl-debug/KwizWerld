@@ -1,8 +1,9 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import type { Database } from './database'
 
-// Reads go through this client. EXP, diamonds, and gacha rolls must use server RPC.
+export type AppSupabaseClient = SupabaseClient<Database>
 
-let client: SupabaseClient | null | undefined
+let client: AppSupabaseClient | null | undefined
 
 function readEnv(value: string | undefined): string | null {
   if (!value) return null
@@ -10,7 +11,7 @@ function readEnv(value: string | undefined): string | null {
   return trimmed.length > 0 ? trimmed : null
 }
 
-export function getSupabase(): SupabaseClient | null {
+export function getSupabase(): AppSupabaseClient | null {
   if (client !== undefined) return client
   const url = readEnv(import.meta.env.VITE_SUPABASE_URL)
   const key = readEnv(import.meta.env.VITE_SUPABASE_ANON_KEY)
@@ -18,6 +19,16 @@ export function getSupabase(): SupabaseClient | null {
     client = null
     return null
   }
-  client = createClient(url, key)
+  try {
+    client = createClient<Database>(url, key, {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+      },
+    })
+  } catch {
+    client = null
+  }
   return client
 }
