@@ -10,6 +10,7 @@ import { NotFoundPage } from './pages/NotFoundPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { SettingsPage } from './pages/SettingsPage'
 import { SignupPage } from './pages/SignupPage'
+import { ModePage } from './pages/ModePage'
 import { SubjectPage } from './pages/SubjectPage'
 
 export function AppRoutes() {
@@ -21,7 +22,7 @@ export function AppRoutes() {
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/subject/:subjectId" element={<SubjectPage />} />
-        <Route path="/subject/:subjectId/:mode" element={<SubjectPage />} />
+        <Route path="/subject/:subjectId/:mode" element={<ModePage />} />
         <Route path="/games" element={<GamesPage />} />
         <Route path="/games/:gameId" element={<GamePage />} />
         <Route path="/gacha" element={<GachaPage />} />
