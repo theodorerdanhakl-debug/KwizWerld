@@ -1,0 +1,203 @@
+{
+  "topicId": "science-k-senses",
+  "subjectId": "science",
+  "grade": "K",
+  "learn": {
+    "steps": [
+      {
+        "text": "You learn about the world with your five senses."
+      },
+      {
+        "text": "Eyes see, ears hear, and skin feels.",
+        "example": "A drum is loud. A stone can feel rough.",
+        "image": "senses"
+      },
+      {
+        "text": "Your nose smells, and your tongue tastes."
+      },
+      {
+        "text": "Use more than one sense when you observe. Say what you notice."
+      }
+    ],
+    "check": {
+      "prompt": "Which sense do you use to hear a bell?",
+      "choices": [
+        "Hearing",
+        "Taste",
+        "Smell",
+        "Sight only"
+      ],
+      "answer": 0,
+      "explanation": "Ears are for hearing."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "How many senses are there?",
+        "back": "Five."
+      },
+      {
+        "id": "c2",
+        "front": "Which sense uses your eyes?",
+        "back": "Sight."
+      },
+      {
+        "id": "c3",
+        "front": "Which sense uses your ears?",
+        "back": "Hearing."
+      },
+      {
+        "id": "c4",
+        "front": "Which sense feels rough or smooth?",
+        "back": "Touch."
+      },
+      {
+        "id": "c5",
+        "front": "Which sense uses your nose?",
+        "back": "Smell."
+      },
+      {
+        "id": "c6",
+        "front": "Which sense uses your tongue?",
+        "back": "Taste."
+      },
+      {
+        "id": "c7",
+        "front": "Can a snack be both sweet and loud?",
+        "back": "The crunch is sound. The sweet is taste."
+      },
+      {
+        "id": "c8",
+        "front": "What does observe mean?",
+        "back": "Notice with your senses."
+      },
+      {
+        "id": "c9",
+        "front": "Skin is used for which sense?",
+        "back": "Touch."
+      },
+      {
+        "id": "c10",
+        "front": "Name the five senses.",
+        "back": "Sight, hearing, smell, taste, and touch."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "You hear with your",
+        "choices": [
+          "ears",
+          "eyes",
+          "knees"
+        ],
+        "answer": 0,
+        "explanation": "Ears are for hearing.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "Eyes are for seeing.",
+        "answer": true,
+        "explanation": "Sight uses your eyes.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "Touch tells you if something is",
+        "choices": [
+          "rough or smooth",
+          "only purple",
+          "a number"
+        ],
+        "answer": 0,
+        "explanation": "Skin feels texture.",
+        "difficulty": 1
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "You smell with your",
+        "answer": "nose",
+        "accepted": [
+          "nose"
+        ],
+        "explanation": "The nose is for smell.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "Taste comes from your ears.",
+        "answer": false,
+        "explanation": "Taste comes from your tongue.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "Which sense tastes a lemon?",
+        "choices": [
+          "Taste",
+          "Hearing",
+          "Sight"
+        ],
+        "answer": 0,
+        "explanation": "The tongue tastes the lemon.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "How many senses do people usually name?",
+        "answer": "5",
+        "accepted": [
+          "5",
+          "five"
+        ],
+        "explanation": "Sight, hearing, smell, taste, and touch.",
+        "difficulty": 2
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "You can use more than one sense at a time.",
+        "answer": true,
+        "explanation": "You might see and hear the same thing.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "A ringing phone is noticed first by",
+        "choices": [
+          "hearing",
+          "taste",
+          "smell"
+        ],
+        "answer": 0,
+        "explanation": "A ring is a sound.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "The sense that uses your eyes is",
+        "answer": "sight",
+        "accepted": [
+          "sight",
+          "seeing"
+        ],
+        "explanation": "Eyes are for sight.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

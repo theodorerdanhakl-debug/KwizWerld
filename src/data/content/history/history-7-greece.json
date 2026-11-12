@@ -1,0 +1,204 @@
+{
+  "topicId": "history-7-greece",
+  "subjectId": "history",
+  "grade": "7",
+  "learn": {
+    "steps": [
+      {
+        "text": "Ancient Greece was a collection of city-states, not one unified country at first."
+      },
+      {
+        "text": "A city-state had its own city, farmland, laws, and government.",
+        "example": "Athens and Sparta were famous rivals.",
+        "image": "columns"
+      },
+      {
+        "text": "Athens developed a form of democracy in which some citizens voted."
+      },
+      {
+        "text": "Greek stories, plays, and temples still shape art and politics."
+      }
+    ],
+    "check": {
+      "prompt": "What was a Greek city-state?",
+      "choices": [
+        "A city with its own laws and government",
+        "A modern country in Asia",
+        "Only a temple",
+        "A Roman emperor"
+      ],
+      "answer": 0,
+      "explanation": "Each city-state ruled itself."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "What is a city-state?",
+        "back": "A city that governs itself, with its surrounding land."
+      },
+      {
+        "id": "c2",
+        "front": "Name two Greek city-states.",
+        "back": "Athens and Sparta."
+      },
+      {
+        "id": "c3",
+        "front": "Which city is known for early democracy?",
+        "back": "Athens."
+      },
+      {
+        "id": "c4",
+        "front": "Did every person in Athens get to vote?",
+        "back": "No. Many people, including women and enslaved people, could not."
+      },
+      {
+        "id": "c5",
+        "front": "What is a myth?",
+        "back": "A traditional story about gods or heroes."
+      },
+      {
+        "id": "c6",
+        "front": "Were Greek city-states always united?",
+        "back": "No. They were often independent and sometimes at war."
+      },
+      {
+        "id": "c7",
+        "front": "What kind of building used rows of columns?",
+        "back": "A temple."
+      },
+      {
+        "id": "c8",
+        "front": "Sparta was known for what?",
+        "back": "Its army and strict training."
+      },
+      {
+        "id": "c9",
+        "front": "Democracy means rule by whom?",
+        "back": "The people, through citizens' votes."
+      },
+      {
+        "id": "c10",
+        "front": "Greek plays were part of what?",
+        "back": "Public culture and festivals."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "A Greek city-state was",
+        "choices": [
+          "a self-governing city and its land",
+          "a single empire from the start",
+          "only an island myth"
+        ],
+        "answer": 0,
+        "explanation": "City-states such as Athens ruled themselves.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "Athens and Sparta were Greek city-states.",
+        "answer": true,
+        "explanation": "They were two of the best known.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "Early democracy is most closely tied to",
+        "choices": [
+          "Athens",
+          "Sparta only",
+          "Rome"
+        ],
+        "answer": 0,
+        "explanation": "Athens let some citizens vote on decisions.",
+        "difficulty": 2
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "Athens and Sparta were both",
+        "answer": "city-states",
+        "accepted": [
+          "city-states",
+          "city states"
+        ],
+        "explanation": "Each was a city-state.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "Every adult in Athens could vote.",
+        "answer": false,
+        "explanation": "Citizenship and the vote were limited.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "Sparta was especially known for",
+        "choices": [
+          "military training",
+          "being a river in Egypt",
+          "paper money"
+        ],
+        "answer": 0,
+        "explanation": "Spartan life centered on the army.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "Traditional stories of Greek gods are called",
+        "answer": "myths",
+        "accepted": [
+          "myths",
+          "myth"
+        ],
+        "explanation": "Those stories are myths.",
+        "difficulty": 3
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "Greek city-states were always peaceful allies.",
+        "answer": false,
+        "explanation": "They sometimes fought, including Athens and Sparta.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "Columns are a clue to Greek",
+        "choices": [
+          "temples",
+          "railroads",
+          "printing presses"
+        ],
+        "answer": 0,
+        "explanation": "Temples such as the Parthenon used columns.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "In a democracy, citizens take part in",
+        "answer": "government",
+        "accepted": [
+          "government",
+          "voting"
+        ],
+        "explanation": "Citizens share in decisions.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

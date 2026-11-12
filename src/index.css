@@ -976,4 +976,189 @@ html.reduce-motion .switch-thumb {
     border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
     background: var(--surface-elevated);
   }
+
+  .reward-pulse {
+    animation: reward-pulse 280ms ease;
+  }
+
+  .reward-burst i {
+    animation: reward-pop 420ms ease-out forwards;
+  }
+
+  .confetti span {
+    animation: confetti-fall 1.1s ease-in forwards;
+  }
+}
+
+.lesson-example {
+  margin: 1.5rem 0 0;
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 1rem 1.15rem;
+  color: var(--text);
+}
+
+.lesson-figure {
+  width: min(100%, 16rem);
+  height: auto;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lesson-figure-fill {
+  fill: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+.choice {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 0.9rem 1rem;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+}
+
+.choice.is-selected,
+.choice.is-correct {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+
+.choice.is-wrong {
+  border-color: color-mix(in srgb, var(--text) 35%, var(--border));
+}
+
+.choice:disabled {
+  cursor: default;
+}
+
+.flash-scene {
+  perspective: 1200px;
+}
+
+.flash-inner,
+.flash-static {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 16rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+
+.flash-face {
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 1.5rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
+.flash-inner .flash-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.flash-back {
+  transform: rotateY(180deg);
+}
+
+.reward-note {
+  color: var(--accent);
+}
+
+.reward-burst {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+}
+
+.reward-burst i {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti span {
+  position: absolute;
+  top: 0;
+  width: 0.45rem;
+  height: 0.7rem;
+  border-radius: 0.2rem;
+  background: var(--accent);
+}
+
+.confetti span:nth-child(even) {
+  background: color-mix(in srgb, var(--accent) 45%, var(--surface-elevated));
+}
+
+.confetti span:nth-child(1) { left: 8%; }
+.confetti span:nth-child(2) { left: 16%; }
+.confetti span:nth-child(3) { left: 24%; }
+.confetti span:nth-child(4) { left: 32%; }
+.confetti span:nth-child(5) { left: 40%; }
+.confetti span:nth-child(6) { left: 48%; }
+.confetti span:nth-child(7) { left: 56%; }
+.confetti span:nth-child(8) { left: 64%; }
+.confetti span:nth-child(9) { left: 72%; }
+.confetti span:nth-child(10) { left: 80%; }
+.confetti span:nth-child(11) { left: 88%; }
+.confetti span:nth-child(12) { left: 12%; }
+.confetti span:nth-child(13) { left: 28%; }
+.confetti span:nth-child(14) { left: 52%; }
+.confetti span:nth-child(15) { left: 70%; }
+.confetti span:nth-child(16) { left: 92%; }
+
+@keyframes reward-pulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes reward-pop {
+  to { transform: translate3d(var(--dx), var(--dy), 0); opacity: 0; }
+}
+
+.reward-burst i:nth-child(1) { --dx: -0.85rem; --dy: -0.4rem; }
+.reward-burst i:nth-child(2) { --dx: 0.55rem; --dy: -0.85rem; }
+.reward-burst i:nth-child(3) { --dx: 0.95rem; --dy: 0.15rem; }
+.reward-burst i:nth-child(4) { --dx: -0.2rem; --dy: 0.85rem; }
+.reward-burst i:nth-child(5) { --dx: -1rem; --dy: 0.35rem; }
+.reward-burst i:nth-child(6) { --dx: 0.15rem; --dy: -1rem; }
+
+.confetti span:nth-child(3n) { animation-delay: 90ms; }
+.confetti span:nth-child(4n) { animation-delay: 160ms; }
+
+@keyframes confetti-fall {
+  from { transform: translate3d(0, -12vh, 0); }
+  to { transform: translate3d(0, 80vh, 0); opacity: 0; }
 }

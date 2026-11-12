@@ -1,0 +1,203 @@
+{
+  "topicId": "english-5-poetry",
+  "subjectId": "english",
+  "grade": "5",
+  "learn": {
+    "steps": [
+      {
+        "text": "A poem can say a lot in a few lines. Read it slowly."
+      },
+      {
+        "text": "Line breaks and rhythm change how a poem sounds.",
+        "example": "The wind / taps the glass / and moves on.",
+        "image": "poem"
+      },
+      {
+        "text": "An image is a picture the words make you see, hear, or feel."
+      },
+      {
+        "text": "Ask what the picture is doing in the poem, not only what it names."
+      }
+    ],
+    "check": {
+      "prompt": "What is a line break?",
+      "choices": [
+        "Where a line of poetry ends",
+        "A spelling mistake",
+        "The title of the poem",
+        "A period"
+      ],
+      "answer": 0,
+      "explanation": "The poet chooses where each line stops."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "What is an image in a poem?",
+        "back": "A picture the words make you sense."
+      },
+      {
+        "id": "c2",
+        "front": "What is rhythm?",
+        "back": "The beat of the lines."
+      },
+      {
+        "id": "c3",
+        "front": "Should you rush a poem?",
+        "back": "No. Read it slowly."
+      },
+      {
+        "id": "c4",
+        "front": "What is a line break?",
+        "back": "The place a line ends."
+      },
+      {
+        "id": "c5",
+        "front": "A poem must be long. True or false?",
+        "back": "False."
+      },
+      {
+        "id": "c6",
+        "front": "What can a short line do?",
+        "back": "Make you pause."
+      },
+      {
+        "id": "c7",
+        "front": "Name one sense an image can use.",
+        "back": "Sight, sound, or touch."
+      },
+      {
+        "id": "c8",
+        "front": "What is the speaker?",
+        "back": "The voice saying the poem."
+      },
+      {
+        "id": "c9",
+        "front": "Why notice repeated sounds?",
+        "back": "They build rhythm."
+      },
+      {
+        "id": "c10",
+        "front": "What question helps with an image?",
+        "back": "What is this picture doing?"
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "A line break is",
+        "choices": [
+          "where a line ends",
+          "a comma",
+          "the poet's name",
+          "a rhyme only"
+        ],
+        "answer": 0,
+        "explanation": "The poet decides where the line stops.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "Poems can be short.",
+        "answer": true,
+        "explanation": "A few lines can still hold an idea.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "An image in a poem is",
+        "choices": [
+          "a picture made of words",
+          "only a drawing beside the poem",
+          "the page number"
+        ],
+        "answer": 0,
+        "explanation": "Images help you see, hear, or feel the idea.",
+        "difficulty": 1
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "What do we call the beat of the lines?",
+        "answer": "rhythm",
+        "accepted": [
+          "rhythm"
+        ],
+        "explanation": "Rhythm is the beat you hear as you read.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "You should read a poem as fast as you can.",
+        "answer": false,
+        "explanation": "Slow reading lets you hear the lines.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "The speaker of a poem is",
+        "choices": [
+          "the voice saying the words",
+          "always the poet's friend",
+          "the title"
+        ],
+        "answer": 0,
+        "explanation": "The speaker is the voice, who may or may not be the poet.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "A picture the words make is called an",
+        "answer": "image",
+        "accepted": [
+          "image"
+        ],
+        "explanation": "That picture is an image.",
+        "difficulty": 2
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "Line breaks can change how a poem sounds.",
+        "answer": true,
+        "explanation": "A stop at the end of a line makes a pause.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "Which question fits an image?",
+        "choices": [
+          "What is this picture doing?",
+          "How many letters are in the title?",
+          "What is the font?"
+        ],
+        "answer": 0,
+        "explanation": "Ask what the picture is doing in the poem.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "Repeated sounds often build the poem's",
+        "answer": "rhythm",
+        "accepted": [
+          "rhythm",
+          "beat"
+        ],
+        "explanation": "Repeated sounds help make the beat.",
+        "difficulty": 3
+      }
+    ]
+  }
+}
