@@ -20,6 +20,7 @@ export function LearnSession({ activity, backHref }: LearnSessionProps) {
   const [checked, setChecked] = useState(false)
   const [done, setDone] = useState(false)
   const awarded = useRef(false)
+  const rewardKey = useRef(crypto.randomUUID())
   const step = steps[index]
   const onCheck = index >= steps.length
   const correct = choice === activity.learn.check.answer
@@ -28,7 +29,11 @@ export function LearnSession({ activity, backHref }: LearnSessionProps) {
     if (awarded.current) return
     awarded.current = true
     setDone(true)
-    void awardRewards('learn', correct ? 1 : 0)
+    void awardRewards('learn', {
+      idempotencyKey: rewardKey.current,
+      topicId: activity.topicId,
+      score: correct ? 1 : 0,
+    })
   }
 
   if (done) {

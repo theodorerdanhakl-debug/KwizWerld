@@ -46,13 +46,18 @@ export function PracticeSession({ activity, backHref }: PracticeSessionProps) {
   const [missed, setMissed] = useState<PracticeQuestion[]>([])
   const [roundSize, setRoundSize] = useState(activity.practice.questions.length)
   const awarded = useRef(false)
+  const rewardKey = useRef(crypto.randomUUID())
   const total = roundSize
   const canCheck = current.type === 'typed' ? typed.trim().length > 0 : choice !== null
 
   function award(score: number) {
     if (awarded.current) return
     awarded.current = true
-    void awardRewards('practice', score)
+    void awardRewards('practice', {
+      idempotencyKey: rewardKey.current,
+      topicId: activity.topicId,
+      score,
+    })
   }
 
   function check() {
@@ -85,6 +90,7 @@ export function PracticeSession({ activity, backHref }: PracticeSessionProps) {
 
   function retryMissed() {
     const nextDeal = deal(missed)
+    rewardKey.current = crypto.randomUUID()
     awarded.current = false
     setRoundSize(missed.length)
     setCurrent(nextDeal.current)

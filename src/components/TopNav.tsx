@@ -12,7 +12,7 @@ function navClass({ isActive }: { isActive: boolean }): string {
 
 export function TopNav() {
   return (
-    <header className="sticky top-0 z-20 border-b border-border bg-background">
+    <header className="sticky top-0 z-40 border-b border-border bg-background">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-5 py-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8 sm:px-6">
         <div className="flex items-center justify-between gap-3 sm:contents">
           <Link to="/home" className="font-display text-xl font-semibold">

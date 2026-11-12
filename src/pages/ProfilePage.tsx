@@ -4,6 +4,7 @@ import { PageLayout } from '../components/PageLayout'
 import { gradeLabel } from '../data/content'
 import { useSessionStore } from '../store/session'
 import { formatBalance } from '../utils/formatBalance'
+import { levelProgress } from '../utils/level'
 
 export function ProfilePage() {
   const profile = useSessionStore((state) => state.profile)
@@ -19,6 +20,8 @@ export function ProfilePage() {
       </PageLayout>
     )
   }
+
+  const progress = levelProgress(profile.exp)
 
   return (
     <PageLayout title="Profile" lede={`${gradeLabel(profile.gradeLevel)}. Level ${profile.level}.`}>
@@ -36,6 +39,11 @@ export function ProfilePage() {
           <dd className="mt-2 text-2xl">{formatBalance(profile.diamonds)}</dd>
         </div>
       </dl>
+      <p className="mt-8 text-muted">
+        {progress.maxed
+          ? `Level ${progress.level}.`
+          : `${formatBalance(progress.current)} of ${formatBalance(progress.needed)} EXP to the next level.`}
+      </p>
     </PageLayout>
   )
 }
