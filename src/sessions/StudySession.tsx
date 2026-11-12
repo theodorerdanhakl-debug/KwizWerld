@@ -32,6 +32,7 @@ export function StudySession({ activity, backHref }: StudySessionProps) {
   const [done, setDone] = useState(false)
   const missed = useRef(new Set<string>())
   const awarded = useRef(false)
+  const rewardKey = useRef(crypto.randomUUID())
   const drag = useRef<{ x: number; y: number } | null>(null)
   const card = queue[0]
 
@@ -40,7 +41,11 @@ export function StudySession({ activity, backHref }: StudySessionProps) {
     awarded.current = true
     setDone(true)
     const score = cards.length === 0 ? 0 : (cards.length - missed.current.size) / cards.length
-    void awardRewards('study', score)
+    void awardRewards('study', {
+      idempotencyKey: rewardKey.current,
+      topicId: activity.topicId,
+      score,
+    })
   }
 
   function rate(known: boolean) {
