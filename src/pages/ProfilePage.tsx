@@ -1,15 +1,20 @@
 import { Avatar } from '../components/Avatar'
 import { Button } from '../components/Button'
 import { PageLayout } from '../components/PageLayout'
-import { gradeLabel } from '../data/content'
+import { SUBJECT_IDS, getSubject, gradeLabel } from '../data/content'
+import { getTopics } from '../data/curriculum'
+import { useProgressStore } from '../store/progress'
 import { useSessionStore } from '../store/session'
 import { formatBalance } from '../utils/formatBalance'
 import { levelProgress } from '../utils/level'
+import { progressBySubject, progressLine } from '../utils/recommendations'
 
 export function ProfilePage() {
   const profile = useSessionStore((state) => state.profile)
   const error = useSessionStore((state) => state.error)
   const refreshProfile = useSessionStore((state) => state.refreshProfile)
+  const attempts = useProgressStore((state) => state.attempts)
+  const loaded = useProgressStore((state) => state.loaded)
 
   if (!profile) {
     return (
@@ -22,6 +27,10 @@ export function ProfilePage() {
   }
 
   const progress = levelProgress(profile.exp)
+  const overview = progressBySubject(
+    attempts,
+    SUBJECT_IDS.flatMap((subjectId) => getTopics(subjectId)),
+  )
 
   return (
     <PageLayout title="Profile" lede={`${gradeLabel(profile.gradeLevel)}. Level ${profile.level}.`}>
@@ -44,6 +53,23 @@ export function ProfilePage() {
           ? `Level ${progress.level}.`
           : `${formatBalance(progress.current)} of ${formatBalance(progress.needed)} EXP to the next level.`}
       </p>
+      <section className="mt-16" aria-labelledby="progress-heading">
+        <h2 id="progress-heading" className="text-sm font-medium text-muted">
+          Progress
+        </h2>
+        {loaded ? (
+          <ul className="progress-list">
+            {overview.map((row) => (
+              <li key={row.subjectId} className="progress-row">
+                <span>{getSubject(row.subjectId)?.name}</span>
+                <span className="text-muted">{progressLine(row)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-5 text-muted">Loading progress.</p>
+        )}
+      </section>
     </PageLayout>
   )
 }

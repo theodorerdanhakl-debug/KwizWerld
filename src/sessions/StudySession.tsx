@@ -5,7 +5,9 @@ import { Confetti } from '../components/RewardBurst'
 import { ProgressBar } from '../components/ProgressBar'
 import type { Flashcard, TopicActivity } from '../data/activities'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+import { recordAttempt } from '../supabase/attempts'
 import { awardRewards } from '../supabase/awardRewards'
+import { elapsedSeconds } from '../utils/recommendations'
 
 export type StudySessionProps = {
   activity: TopicActivity
@@ -33,6 +35,7 @@ export function StudySession({ activity, backHref }: StudySessionProps) {
   const missed = useRef(new Set<string>())
   const awarded = useRef(false)
   const rewardKey = useRef(crypto.randomUUID())
+  const startedAt = useRef(Date.now())
   const drag = useRef<{ x: number; y: number } | null>(null)
   const card = queue[0]
 
@@ -41,6 +44,13 @@ export function StudySession({ activity, backHref }: StudySessionProps) {
     awarded.current = true
     setDone(true)
     const score = cards.length === 0 ? 0 : (cards.length - missed.current.size) / cards.length
+    void recordAttempt({
+      idempotencyKey: rewardKey.current,
+      topicId: activity.topicId,
+      mode: 'study',
+      score,
+      durationSeconds: elapsedSeconds(startedAt.current, Date.now()),
+    })
     void awardRewards('study', {
       idempotencyKey: rewardKey.current,
       topicId: activity.topicId,
