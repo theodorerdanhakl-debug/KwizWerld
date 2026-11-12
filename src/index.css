@@ -844,6 +844,100 @@ html.reduce-motion .switch-thumb {
   color: var(--muted-text);
 }
 
+.grade-tabs {
+  display: flex;
+  gap: 0.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.grade-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.grade-tabs .tab {
+  flex: 0 0 auto;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topic-card {
+  display: flex;
+  height: 100%;
+  min-height: 11.5rem;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 1.15rem 1.2rem 1.25rem;
+  color: inherit;
+}
+
+.topic-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.topic-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface-elevated));
+  color: var(--accent);
+}
+
+.topic-glyph {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.topic-card-title {
+  margin: 1.15rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.topic-card-detail {
+  margin: 0.35rem 0 0;
+  color: var(--muted-text);
+}
+
+.mastery-ring {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.mastery-track,
+.mastery-value {
+  fill: none;
+  stroke-width: 3;
+}
+
+.mastery-track {
+  stroke: var(--border);
+}
+
+.mastery-value {
+  stroke: var(--accent);
+  stroke-linecap: round;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .subject-back,
   .recommend-card,
@@ -867,5 +961,19 @@ html.reduce-motion .switch-thumb {
     box-shadow:
       0 1px 1px color-mix(in srgb, var(--text) 5%, transparent),
       0 22px 36px -18px color-mix(in srgb, var(--accent) 42%, transparent);
+  }
+
+  .topic-card {
+    transition:
+      transform var(--duration) ease,
+      border-color var(--duration) ease,
+      background-color var(--duration) ease;
+  }
+
+  .topic-card:hover,
+  .topic-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    background: var(--surface-elevated);
   }
 }

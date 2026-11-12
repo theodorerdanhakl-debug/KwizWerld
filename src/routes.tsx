@@ -12,6 +12,7 @@ import { SettingsPage } from './pages/SettingsPage'
 import { SignupPage } from './pages/SignupPage'
 import { ModePage } from './pages/ModePage'
 import { SubjectPage } from './pages/SubjectPage'
+import { TopicPage } from './pages/TopicPage'
 
 export function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ export function AppRoutes() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/subject/:subjectId" element={<SubjectPage />} />
         <Route path="/subject/:subjectId/:mode" element={<ModePage />} />
+        <Route path="/subject/:subjectId/:mode/:topicId" element={<TopicPage />} />
         <Route path="/games" element={<GamesPage />} />
         <Route path="/games/:gameId" element={<GamePage />} />
         <Route path="/gacha" element={<GachaPage />} />

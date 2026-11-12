@@ -1,13 +1,22 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Button } from '../components/Button'
+import { Field } from '../components/Field'
+import { GradeTabs } from '../components/GradeTabs'
 import { PageLayout } from '../components/PageLayout'
 import { BackLink, SubjectShell } from '../components/SubjectShell'
-import { getMode, getSubject } from '../data/content'
+import { TopicCard } from '../components/TopicCard'
+import { getMode, getSubject, isGrade, type Grade } from '../data/content'
+import { getTopics } from '../data/curriculum'
+import { useSessionStore } from '../store/session'
 
 export function ModePage() {
   const params = useParams()
   const subject = getSubject(params.subjectId ?? '')
   const mode = getMode(params.mode ?? '')
+  const profileGrade = useSessionStore((state) => state.profile?.gradeLevel)
+  const [grade, setGrade] = useState<Grade>(profileGrade && isGrade(profileGrade) ? profileGrade : 'K')
+  const [search, setSearch] = useState('')
 
   if (!subject) {
     return (
@@ -33,11 +42,46 @@ export function ModePage() {
     )
   }
 
+  const query = search.trim().toLowerCase()
+  const topics = getTopics(subject.id, grade).filter((item) => {
+    if (!query) return true
+    return item.name.toLowerCase().includes(query) || item.description.toLowerCase().includes(query)
+  })
+
   return (
-    <SubjectShell title={mode.label} subjectId={subject.id}>
+    <SubjectShell title={`${mode.label} · ${subject.name}`} subjectId={subject.id} width="wide">
       <BackLink href={`/subject/${subject.id}`}>{subject.name}</BackLink>
       <h1 className="mt-8 text-4xl font-semibold">{mode.label}</h1>
-      <p className="mt-4 text-lg text-muted">Choose a topic.</p>
+      <div className="mt-10">
+        <GradeTabs value={grade} onChange={setGrade} />
+      </div>
+      <div className="mt-8 max-w-md">
+        <Field label="Search">
+          {({ id, describedBy }) => (
+            <input
+              id={id}
+              className="field-input"
+              type="search"
+              value={search}
+              placeholder="Search this grade"
+              autoComplete="off"
+              aria-describedby={describedBy}
+              onChange={(event) => setSearch(event.target.value)}
+            />
+          )}
+        </Field>
+      </div>
+      {topics.length > 0 ? (
+        <ul className="topic-grid">
+          {topics.map((item) => (
+            <li key={item.id}>
+              <TopicCard topic={item} href={`/subject/${subject.id}/${mode.id}/${item.id}`} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-10 text-muted">Nothing in this grade matches.</p>
+      )}
     </SubjectShell>
   )
 }
