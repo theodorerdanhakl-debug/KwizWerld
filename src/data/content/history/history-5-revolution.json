@@ -1,0 +1,203 @@
+{
+  "topicId": "history-5-revolution",
+  "subjectId": "history",
+  "grade": "5",
+  "learn": {
+    "steps": [
+      {
+        "text": "By the 1760s, Britain taxed the thirteen colonies and kept soldiers there."
+      },
+      {
+        "text": "Many colonists said they should not be taxed unless they had a voice in Parliament.",
+        "example": "The slogan was 'No taxation without representation.'",
+        "image": "flag"
+      },
+      {
+        "text": "Protests grew into war in 1775. The Declaration of Independence came in 1776."
+      },
+      {
+        "text": "The colonies fought to leave British rule and form their own government."
+      }
+    ],
+    "check": {
+      "prompt": "What did 'no taxation without representation' argue?",
+      "choices": [
+        "Colonists wanted a voice before being taxed",
+        "Britain should end all taxes everywhere",
+        "Only farmers could vote",
+        "Tea should be free"
+      ],
+      "answer": 0,
+      "explanation": "They objected to taxes passed without colonial representatives."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "Who ruled the thirteen colonies before the war?",
+        "back": "Britain."
+      },
+      {
+        "id": "c2",
+        "front": "What is a tax?",
+        "back": "Money a government requires people to pay."
+      },
+      {
+        "id": "c3",
+        "front": "What does representation mean here?",
+        "back": "Having a voice in the government that taxes you."
+      },
+      {
+        "id": "c4",
+        "front": "In what year was the Declaration of Independence?",
+        "back": "1776."
+      },
+      {
+        "id": "c5",
+        "front": "When did the fighting begin?",
+        "back": "1775."
+      },
+      {
+        "id": "c6",
+        "front": "What was the Boston Tea Party?",
+        "back": "A protest against a tea tax."
+      },
+      {
+        "id": "c7",
+        "front": "What did the Declaration announce?",
+        "back": "That the colonies were independent."
+      },
+      {
+        "id": "c8",
+        "front": "Name the slogan about taxes.",
+        "back": "No taxation without representation."
+      },
+      {
+        "id": "c9",
+        "front": "Were the colonies happy with new taxes?",
+        "back": "Many were not."
+      },
+      {
+        "id": "c10",
+        "front": "What did the war decide?",
+        "back": "Whether the colonies would leave British rule."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "Before the Revolution, the colonies were ruled by",
+        "choices": [
+          "Britain",
+          "Mexico",
+          "France only"
+        ],
+        "answer": 0,
+        "explanation": "They were British colonies.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "The Declaration of Independence is from 1776.",
+        "answer": true,
+        "explanation": "It was adopted in 1776.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "'No taxation without representation' means",
+        "choices": [
+          "people wanted a voice in the taxes",
+          "tea was illegal",
+          "soldiers should farm"
+        ],
+        "answer": 0,
+        "explanation": "They wanted representatives before Parliament taxed them.",
+        "difficulty": 2
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "Fighting in the Revolution began in",
+        "answer": "1775",
+        "accepted": [
+          "1775"
+        ],
+        "explanation": "Battles at Lexington and Concord were in 1775.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "The Declaration of Independence said the colonies would stay British.",
+        "answer": false,
+        "explanation": "It said they were independent.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "A protest against the tea tax was the",
+        "choices": [
+          "Boston Tea Party",
+          "Boston parade for the king",
+          "Stamp picnic"
+        ],
+        "answer": 0,
+        "explanation": "Colonists dumped tea to protest the tax.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "The 1776 document declaring independence was the Declaration of",
+        "answer": "Independence",
+        "accepted": [
+          "Independence"
+        ],
+        "explanation": "That is the Declaration of Independence.",
+        "difficulty": 3
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "Every colonist agreed with the Revolution.",
+        "answer": false,
+        "explanation": "People disagreed. Some stayed loyal to Britain.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "The colonies fought to",
+        "choices": [
+          "leave British rule",
+          "join the Spanish navy",
+          "close every school"
+        ],
+        "answer": 0,
+        "explanation": "The war was about breaking from Britain.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "Parliament was the lawmaking body of",
+        "answer": "Britain",
+        "accepted": [
+          "Britain",
+          "Great Britain",
+          "England"
+        ],
+        "explanation": "Parliament sat in Britain, not in the colonies.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

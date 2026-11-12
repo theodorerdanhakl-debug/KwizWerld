@@ -1,0 +1,203 @@
+{
+  "topicId": "geography-k-neighborhood",
+  "subjectId": "geography",
+  "grade": "K",
+  "learn": {
+    "steps": [
+      {
+        "text": "A map is a picture that shows where places are."
+      },
+      {
+        "text": "Your neighborhood has homes, streets, and places people share.",
+        "example": "A park, a school, and a store can be on the same map.",
+        "image": "neighborhood"
+      },
+      {
+        "text": "Symbols stand for real places. A key tells what the symbols mean."
+      },
+      {
+        "text": "Words like near, far, left, and right help you talk about the map."
+      }
+    ],
+    "check": {
+      "prompt": "What does a map key do?",
+      "choices": [
+        "Tells what the symbols mean",
+        "Unlocks a door",
+        "Shows only the ocean",
+        "Writes your name"
+      ],
+      "answer": 0,
+      "explanation": "The key explains the pictures on the map."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "What is a map?",
+        "back": "A picture that shows where places are."
+      },
+      {
+        "id": "c2",
+        "front": "Name a place in a neighborhood.",
+        "back": "A home, school, park, or store."
+      },
+      {
+        "id": "c3",
+        "front": "What is a map key?",
+        "back": "It tells what the symbols mean."
+      },
+      {
+        "id": "c4",
+        "front": "What does a symbol stand for?",
+        "back": "A real place or thing."
+      },
+      {
+        "id": "c5",
+        "front": "Which word tells that something is close?",
+        "back": "Near."
+      },
+      {
+        "id": "c6",
+        "front": "Which word tells that something is not close?",
+        "back": "Far."
+      },
+      {
+        "id": "c7",
+        "front": "Left and right help you do what?",
+        "back": "Describe where something is."
+      },
+      {
+        "id": "c8",
+        "front": "Is a map a photo of one person?",
+        "back": "No. It shows places."
+      },
+      {
+        "id": "c9",
+        "front": "A school can be on a neighborhood map. True or false?",
+        "back": "True."
+      },
+      {
+        "id": "c10",
+        "front": "Why use a symbol?",
+        "back": "So a place can fit on the map."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "A map is",
+        "choices": [
+          "a picture of where places are",
+          "a kind of shoe",
+          "only a story"
+        ],
+        "answer": 0,
+        "explanation": "Maps show where places are.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "A park can be part of a neighborhood.",
+        "answer": true,
+        "explanation": "A park is a place people share.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "A map key tells",
+        "choices": [
+          "what the symbols mean",
+          "the time",
+          "your age"
+        ],
+        "answer": 0,
+        "explanation": "The key explains the symbols.",
+        "difficulty": 1
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "A picture on a map that stands for a real place is a",
+        "answer": "symbol",
+        "accepted": [
+          "symbol"
+        ],
+        "explanation": "That picture is a symbol.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "Near means far away.",
+        "answer": false,
+        "explanation": "Near means close.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "Which word means close?",
+        "choices": [
+          "Near",
+          "Far",
+          "Under the ocean"
+        ],
+        "answer": 0,
+        "explanation": "Near means close by.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "Left and right help you say",
+        "answer": "where",
+        "accepted": [
+          "where",
+          "where something is"
+        ],
+        "explanation": "They help you say where something is.",
+        "difficulty": 2
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "Streets can be shown on a neighborhood map.",
+        "answer": true,
+        "explanation": "Streets connect the places.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "Which belongs on a neighborhood map?",
+        "choices": [
+          "A school",
+          "A whole other planet",
+          "A secret password"
+        ],
+        "answer": 0,
+        "explanation": "A school is a neighborhood place.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "The part of the map that explains symbols is the",
+        "answer": "key",
+        "accepted": [
+          "key",
+          "map key"
+        ],
+        "explanation": "That part is the key.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

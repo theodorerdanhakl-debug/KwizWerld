@@ -1,0 +1,203 @@
+{
+  "topicId": "science-7-cells",
+  "subjectId": "science",
+  "grade": "7",
+  "learn": {
+    "steps": [
+      {
+        "text": "A cell is the smallest living unit of a living thing."
+      },
+      {
+        "text": "The cell membrane is the outer boundary. It lets some materials in and out.",
+        "image": "cell"
+      },
+      {
+        "text": "The nucleus holds the cell's genetic instructions.",
+        "example": "Those instructions help the cell make proteins and divide."
+      },
+      {
+        "text": "Plant cells also have a cell wall and chloroplasts. Animal cells do not."
+      }
+    ],
+    "check": {
+      "prompt": "What does the nucleus hold?",
+      "choices": [
+        "Genetic instructions",
+        "Only water",
+        "The cell wall",
+        "Sunlight"
+      ],
+      "answer": 0,
+      "explanation": "The nucleus stores the cell's DNA, its instructions."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "What is a cell?",
+        "back": "The smallest living unit of a living thing."
+      },
+      {
+        "id": "c2",
+        "front": "What is the cell membrane?",
+        "back": "The outer boundary that controls what enters and leaves."
+      },
+      {
+        "id": "c3",
+        "front": "What does the nucleus hold?",
+        "back": "Genetic instructions."
+      },
+      {
+        "id": "c4",
+        "front": "Do animal cells have a cell wall?",
+        "back": "No."
+      },
+      {
+        "id": "c5",
+        "front": "What extra layer do plant cells have?",
+        "back": "A cell wall."
+      },
+      {
+        "id": "c6",
+        "front": "What are chloroplasts for?",
+        "back": "Capturing light for photosynthesis."
+      },
+      {
+        "id": "c7",
+        "front": "Are both plants and animals made of cells?",
+        "back": "Yes."
+      },
+      {
+        "id": "c8",
+        "front": "What is DNA doing in the cell?",
+        "back": "Storing instructions."
+      },
+      {
+        "id": "c9",
+        "front": "The membrane is a solid wall that nothing crosses. True or false?",
+        "back": "False. Some materials pass through."
+      },
+      {
+        "id": "c10",
+        "front": "Name one part shared by plant and animal cells.",
+        "back": "A membrane, cytoplasm, or a nucleus."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "A cell is",
+        "choices": [
+          "the smallest living unit",
+          "a whole organ always",
+          "only a plant leaf"
+        ],
+        "answer": 0,
+        "explanation": "Living things are made of one or more cells.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "The cell membrane surrounds the cell.",
+        "answer": true,
+        "explanation": "It is the outer boundary.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "The nucleus holds",
+        "choices": [
+          "genetic instructions",
+          "the cell wall",
+          "only chloroplasts"
+        ],
+        "answer": 0,
+        "explanation": "DNA in the nucleus is the instruction set.",
+        "difficulty": 2
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "The outer boundary of an animal cell is the cell",
+        "answer": "membrane",
+        "accepted": [
+          "membrane"
+        ],
+        "explanation": "Animal cells have a membrane, not a cell wall.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "Animal cells have chloroplasts.",
+        "answer": false,
+        "explanation": "Chloroplasts are a plant-cell structure.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "Plant cells have a",
+        "choices": [
+          "cell wall",
+          "no membrane",
+          "no nucleus"
+        ],
+        "answer": 0,
+        "explanation": "The wall sits outside the membrane.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "Structures that capture light in plant cells are",
+        "answer": "chloroplasts",
+        "accepted": [
+          "chloroplasts",
+          "chloroplast"
+        ],
+        "explanation": "Chloroplasts capture light for photosynthesis.",
+        "difficulty": 3
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "Nothing can cross a cell membrane.",
+        "answer": false,
+        "explanation": "The membrane lets some materials through.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "Which part do plant and animal cells share?",
+        "choices": [
+          "A nucleus",
+          "A cell wall",
+          "Chloroplasts"
+        ],
+        "answer": 0,
+        "explanation": "Both have a nucleus. Walls and chloroplasts are plant features here.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "DNA stores a cell's",
+        "answer": "instructions",
+        "accepted": [
+          "instructions",
+          "genetic instructions"
+        ],
+        "explanation": "DNA is the cell's genetic instructions.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

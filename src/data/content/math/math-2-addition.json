@@ -1,0 +1,205 @@
+{
+  "topicId": "math-2-addition",
+  "subjectId": "math",
+  "grade": "2",
+  "learn": {
+    "steps": [
+      {
+        "text": "Add the ones first. Then add the tens."
+      },
+      {
+        "text": "Line the digits up by place so ones sit under ones.",
+        "example": "24 + 13 = 37",
+        "image": "plus-blocks"
+      },
+      {
+        "text": "If the ones make 10 or more, trade 10 ones for 1 ten."
+      },
+      {
+        "text": "Then add the tens, including any ten you traded.",
+        "example": "28 + 15: 8 + 5 = 13, so write 3 and add 1 ten. 2 + 1 + 1 = 4. The sum is 43."
+      }
+    ],
+    "check": {
+      "prompt": "What is 26 + 13?",
+      "choices": [
+        "39",
+        "29",
+        "313",
+        "36"
+      ],
+      "answer": 0,
+      "explanation": "6 + 3 = 9 and 2 tens + 1 ten = 3 tens."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "Add the ones or the tens first?",
+        "back": "Add the ones first."
+      },
+      {
+        "id": "c2",
+        "front": "20 + 10 = ?",
+        "back": "30"
+      },
+      {
+        "id": "c3",
+        "front": "24 + 3 = ?",
+        "back": "27"
+      },
+      {
+        "id": "c4",
+        "front": "What is a trade of 10 ones called?",
+        "back": "1 ten."
+      },
+      {
+        "id": "c5",
+        "front": "15 + 15 = ?",
+        "back": "30"
+      },
+      {
+        "id": "c6",
+        "front": "40 + 7 = ?",
+        "back": "47"
+      },
+      {
+        "id": "c7",
+        "front": "9 + 6 = ?",
+        "back": "15"
+      },
+      {
+        "id": "c8",
+        "front": "31 + 20 = ?",
+        "back": "51"
+      },
+      {
+        "id": "c9",
+        "front": "Which place is under the ones?",
+        "back": "The ones place."
+      },
+      {
+        "id": "c10",
+        "front": "28 + 10 = ?",
+        "back": "38"
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "14 + 5 =",
+        "choices": [
+          "19",
+          "15",
+          "9",
+          "64"
+        ],
+        "answer": 0,
+        "explanation": "4 + 5 = 9, and the ten stays.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "typed",
+        "prompt": "20 + 30 =",
+        "answer": "50",
+        "accepted": [
+          "50"
+        ],
+        "explanation": "2 tens + 3 tens = 5 tens.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "boolean",
+        "prompt": "You add the ones before the tens.",
+        "answer": true,
+        "explanation": "Start with the ones so a trade is not missed.",
+        "difficulty": 1
+      },
+      {
+        "id": "q4",
+        "type": "multiple",
+        "prompt": "26 + 13 =",
+        "choices": [
+          "39",
+          "29",
+          "313",
+          "16"
+        ],
+        "answer": 0,
+        "explanation": "6 + 3 = 9 and 2 + 1 = 3.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "typed",
+        "prompt": "18 + 7 =",
+        "answer": "25",
+        "accepted": [
+          "25"
+        ],
+        "explanation": "8 + 7 = 15, so trade 10 ones for 1 ten.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "boolean",
+        "prompt": "10 ones can be traded for 1 ten.",
+        "answer": true,
+        "explanation": "That trade is regrouping.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "multiple",
+        "prompt": "40 + 25 =",
+        "choices": [
+          "65",
+          "45",
+          "29",
+          "425"
+        ],
+        "answer": 0,
+        "explanation": "4 tens + 2 tens = 6 tens, plus 5 ones.",
+        "difficulty": 2
+      },
+      {
+        "id": "q8",
+        "type": "typed",
+        "prompt": "36 + 28 =",
+        "answer": "64",
+        "accepted": [
+          "64"
+        ],
+        "explanation": "6 + 8 = 14, then 3 + 2 + 1 = 6.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "boolean",
+        "prompt": "24 + 13 is 313.",
+        "answer": false,
+        "explanation": "You add by place. It is 37, not 313.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "multiple",
+        "prompt": "Which sum needs a trade?",
+        "choices": [
+          "27 + 15",
+          "21 + 14",
+          "30 + 20"
+        ],
+        "answer": 0,
+        "explanation": "7 + 5 is more than 9, so you trade.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

@@ -2,8 +2,12 @@ import { useParams } from 'react-router-dom'
 import { Button } from '../components/Button'
 import { PageLayout } from '../components/PageLayout'
 import { BackLink, SubjectShell } from '../components/SubjectShell'
+import { getActivity } from '../data/activities'
 import { getMode, getSubject } from '../data/content'
 import { getTopic } from '../data/curriculum'
+import { LearnSession } from '../sessions/LearnSession'
+import { PracticeSession } from '../sessions/PracticeSession'
+import { StudySession } from '../sessions/StudySession'
 
 export function TopicPage() {
   const params = useParams()
@@ -50,11 +54,31 @@ export function TopicPage() {
     )
   }
 
+  const activity = getActivity(topic.id)
+  const backHref = `/subject/${subject.id}/${mode.id}`
+
   return (
     <SubjectShell title={`${topic.name} · ${mode.label}`} subjectId={subject.id}>
-      <BackLink href={`/subject/${subject.id}/${mode.id}`}>{mode.label}</BackLink>
+      <BackLink href={backHref}>{mode.label}</BackLink>
       <h1 className="mt-8 text-4xl font-semibold">{topic.name}</h1>
-      <p className="mt-4 text-lg text-muted">{topic.description}</p>
+      <div className="mt-10">
+        {!activity ? (
+          <div>
+            <p className="text-lg text-muted">This activity is not ready yet.</p>
+            <div className="mt-8">
+              <Button variant="primary" href={backHref}>
+                Back to {mode.label}
+              </Button>
+            </div>
+          </div>
+        ) : mode.id === 'learn' ? (
+          <LearnSession activity={activity} backHref={backHref} />
+        ) : mode.id === 'study' ? (
+          <StudySession activity={activity} backHref={backHref} />
+        ) : (
+          <PracticeSession activity={activity} backHref={backHref} />
+        )}
+      </div>
     </SubjectShell>
   )
 }

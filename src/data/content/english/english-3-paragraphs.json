@@ -1,0 +1,202 @@
+{
+  "topicId": "english-3-paragraphs",
+  "subjectId": "english",
+  "grade": "3",
+  "learn": {
+    "steps": [
+      {
+        "text": "A paragraph is a group of sentences about one idea."
+      },
+      {
+        "text": "The first sentence often tells the main idea.",
+        "example": "Rainy days are good for reading.",
+        "image": "paragraph"
+      },
+      {
+        "text": "The next sentences add details that belong with that idea."
+      },
+      {
+        "text": "Leave out a sentence that talks about something else."
+      }
+    ],
+    "check": {
+      "prompt": "What belongs in one paragraph?",
+      "choices": [
+        "Sentences about one idea",
+        "Every idea you know",
+        "Only one word",
+        "A list of titles"
+      ],
+      "answer": 0,
+      "explanation": "Keep the sentences on the same idea."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "What is a paragraph?",
+        "back": "A group of sentences about one idea."
+      },
+      {
+        "id": "c2",
+        "front": "What does the first sentence often tell?",
+        "back": "The main idea."
+      },
+      {
+        "id": "c3",
+        "front": "What do the other sentences add?",
+        "back": "Details."
+      },
+      {
+        "id": "c4",
+        "front": "Should every sentence match the idea?",
+        "back": "Yes."
+      },
+      {
+        "id": "c5",
+        "front": "A paragraph is only one word. True or false?",
+        "back": "False."
+      },
+      {
+        "id": "c6",
+        "front": "Name a detail for 'Dogs need walks.'",
+        "back": "They need a path and a leash."
+      },
+      {
+        "id": "c7",
+        "front": "What should you do with a sentence about a new idea?",
+        "back": "Start a new paragraph."
+      },
+      {
+        "id": "c8",
+        "front": "What is a main idea?",
+        "back": "What the paragraph is mostly about."
+      },
+      {
+        "id": "c9",
+        "front": "Details should be related. True or false?",
+        "back": "True."
+      },
+      {
+        "id": "c10",
+        "front": "Why group sentences?",
+        "back": "So the reader can follow one idea."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "A paragraph is",
+        "choices": [
+          "sentences about one idea",
+          "one long word",
+          "always a poem"
+        ],
+        "answer": 0,
+        "explanation": "The sentences share one idea.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "The first sentence can tell the main idea.",
+        "answer": true,
+        "explanation": "That sentence tells what the paragraph is about.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "Which detail fits 'Cats make soft pets'?",
+        "choices": [
+          "They purr when they are calm.",
+          "Rockets leave the ground.",
+          "A map has a key."
+        ],
+        "answer": 0,
+        "explanation": "Purring is about cats. The other details are not.",
+        "difficulty": 1
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "The sentences in a paragraph should share one",
+        "answer": "idea",
+        "accepted": [
+          "idea"
+        ],
+        "explanation": "One paragraph stays with one idea.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "A sentence about a new idea should stay in the same paragraph.",
+        "answer": false,
+        "explanation": "A new idea can start a new paragraph.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "Details in a paragraph should be",
+        "choices": [
+          "related to the main idea",
+          "as random as possible",
+          "only numbers"
+        ],
+        "answer": 0,
+        "explanation": "Details explain the idea you named.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "What do we call what the paragraph is mostly about?",
+        "answer": "the main idea",
+        "accepted": [
+          "main idea",
+          "the main idea"
+        ],
+        "explanation": "That is the main idea.",
+        "difficulty": 2
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "A paragraph can have more than one sentence.",
+        "answer": true,
+        "explanation": "It is a group of sentences.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "Which sentence does not belong with 'We planted beans'?",
+        "choices": [
+          "The bus was late.",
+          "We watered the soil.",
+          "Green shoots came up."
+        ],
+        "answer": 0,
+        "explanation": "The bus is a different idea.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "A group of sentences about one idea is a",
+        "answer": "paragraph",
+        "accepted": [
+          "paragraph"
+        ],
+        "explanation": "That group is a paragraph.",
+        "difficulty": 3
+      }
+    ]
+  }
+}

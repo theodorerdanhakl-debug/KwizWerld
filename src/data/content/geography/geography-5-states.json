@@ -1,0 +1,201 @@
+{
+  "topicId": "geography-5-states",
+  "subjectId": "geography",
+  "grade": "5",
+  "learn": {
+    "steps": [
+      {
+        "text": "The United States is divided into states. Each state has a capital city."
+      },
+      {
+        "text": "A capital is the city where the state government meets.",
+        "example": "Sacramento is the capital of California.",
+        "image": "states"
+      },
+      {
+        "text": "States sit in regions such as the Northeast, South, Midwest, and West."
+      },
+      {
+        "text": "A map of the states helps you find a capital and its neighbors."
+      }
+    ],
+    "check": {
+      "prompt": "What is a state capital?",
+      "choices": [
+        "The city where the state government meets",
+        "The largest city always",
+        "A river",
+        "A mountain"
+      ],
+      "answer": 0,
+      "explanation": "The capital is the seat of the state government, which is not always the largest city."
+    }
+  },
+  "study": {
+    "cards": [
+      {
+        "id": "c1",
+        "front": "What is a state capital?",
+        "back": "The city where the state government meets."
+      },
+      {
+        "id": "c2",
+        "front": "Is the capital always the largest city?",
+        "back": "No."
+      },
+      {
+        "id": "c3",
+        "front": "Name the capital of California.",
+        "back": "Sacramento."
+      },
+      {
+        "id": "c4",
+        "front": "Name the capital of Texas.",
+        "back": "Austin."
+      },
+      {
+        "id": "c5",
+        "front": "Name the capital of New York.",
+        "back": "Albany."
+      },
+      {
+        "id": "c6",
+        "front": "Which ocean is west of California?",
+        "back": "The Pacific Ocean."
+      },
+      {
+        "id": "c7",
+        "front": "Florida is in which region?",
+        "back": "The South."
+      },
+      {
+        "id": "c8",
+        "front": "A state map shows what?",
+        "back": "States, and often their capitals."
+      },
+      {
+        "id": "c9",
+        "front": "Name one US region.",
+        "back": "The West, South, Midwest, or Northeast."
+      },
+      {
+        "id": "c10",
+        "front": "What country are these states part of?",
+        "back": "The United States."
+      }
+    ]
+  },
+  "practice": {
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple",
+        "prompt": "A state capital is",
+        "choices": [
+          "where the state government meets",
+          "always the biggest city",
+          "a national park"
+        ],
+        "answer": 0,
+        "explanation": "Government meetings, not size, decide the capital.",
+        "difficulty": 1
+      },
+      {
+        "id": "q2",
+        "type": "boolean",
+        "prompt": "Every US state has a capital.",
+        "answer": true,
+        "explanation": "Each state has a capital city.",
+        "difficulty": 1
+      },
+      {
+        "id": "q3",
+        "type": "multiple",
+        "prompt": "The capital of California is",
+        "choices": [
+          "Sacramento",
+          "Los Angeles",
+          "San Francisco"
+        ],
+        "answer": 0,
+        "explanation": "Sacramento is the capital. Los Angeles is larger.",
+        "difficulty": 2
+      },
+      {
+        "id": "q4",
+        "type": "typed",
+        "prompt": "The capital of Texas is",
+        "answer": "Austin",
+        "accepted": [
+          "Austin"
+        ],
+        "explanation": "Austin is the capital of Texas.",
+        "difficulty": 2
+      },
+      {
+        "id": "q5",
+        "type": "boolean",
+        "prompt": "The capital is always the city's with the most people.",
+        "answer": false,
+        "explanation": "Some capitals are smaller than other cities in the state.",
+        "difficulty": 2
+      },
+      {
+        "id": "q6",
+        "type": "multiple",
+        "prompt": "Florida is in the",
+        "choices": [
+          "South",
+          "Pacific Ocean",
+          "Midwest only"
+        ],
+        "answer": 0,
+        "explanation": "Florida is a Southern state.",
+        "difficulty": 2
+      },
+      {
+        "id": "q7",
+        "type": "typed",
+        "prompt": "The capital of New York is",
+        "answer": "Albany",
+        "accepted": [
+          "Albany"
+        ],
+        "explanation": "Albany is the capital, not New York City.",
+        "difficulty": 3
+      },
+      {
+        "id": "q8",
+        "type": "boolean",
+        "prompt": "A political map can show states and capitals.",
+        "answer": true,
+        "explanation": "Those maps mark borders and capital cities.",
+        "difficulty": 3
+      },
+      {
+        "id": "q9",
+        "type": "multiple",
+        "prompt": "Which city is a state capital?",
+        "choices": [
+          "Austin",
+          "Los Angeles",
+          "Miami"
+        ],
+        "answer": 0,
+        "explanation": "Austin is the capital of Texas.",
+        "difficulty": 3
+      },
+      {
+        "id": "q10",
+        "type": "typed",
+        "prompt": "Sacramento is the capital of",
+        "answer": "California",
+        "accepted": [
+          "California"
+        ],
+        "explanation": "Sacramento is California's capital.",
+        "difficulty": 3
+      }
+    ]
+  }
+}
