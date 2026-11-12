@@ -470,3 +470,299 @@ dialog.modal::backdrop {
 html.reduce-motion .switch-thumb {
   transition: none;
 }
+
+.home-hall {
+  position: relative;
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  overflow-x: clip;
+  background: var(--background);
+  color: var(--text);
+}
+
+.home-drift {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-drift-blob {
+  position: absolute;
+  width: 58vw;
+  height: 58vw;
+  border-radius: 999px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--text) 8%, transparent), transparent 68%);
+  transform: translate3d(0, 0, 0);
+}
+
+.home-drift-a {
+  top: -18vh;
+  left: -12vw;
+}
+
+.home-drift-b {
+  right: -16vw;
+  bottom: -22vh;
+  width: 48vw;
+  height: 48vw;
+}
+
+.home-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  outline: none;
+}
+
+.home-greeting {
+  margin: 1.75rem 1.5rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted-text);
+}
+
+.door-scroller {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  width: 100%;
+}
+
+.door-row {
+  display: flex;
+  gap: 1.15rem;
+  width: min(100%, 76rem);
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 2rem;
+  list-style: none;
+}
+
+.door-row > li {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.door-lift {
+  border-radius: 1rem;
+}
+
+.door-link {
+  display: block;
+  border-radius: 1rem;
+  color: inherit;
+}
+
+.door-link:focus-visible {
+  outline: none;
+}
+
+.door-link:focus-visible .door-stage {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.door-stage {
+  position: relative;
+  display: block;
+  height: min(58vh, 30rem);
+  min-height: 16rem;
+  perspective: 1800px;
+  perspective-origin: left center;
+  border-radius: 1rem;
+  box-shadow: 0 12px 28px -22px color-mix(in srgb, var(--text) 30%, transparent);
+}
+
+.door-scene,
+.door-panel,
+.walk-door {
+  border-radius: 1rem;
+}
+
+.door-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.door-glow {
+  position: absolute;
+  inset: -12%;
+  background: radial-gradient(
+    circle at 50% 42%,
+    color-mix(in srgb, var(--accent) 70%, var(--surface-elevated)),
+    color-mix(in srgb, var(--accent) 18%, var(--background)) 58%,
+    var(--background) 100%
+  );
+}
+
+.door-scene-art {
+  position: absolute;
+  right: 12%;
+  bottom: 10%;
+  left: 12%;
+  height: 58%;
+  color: color-mix(in srgb, var(--accent) 62%, var(--text));
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.door-scene-art circle,
+.door-scene-art rect {
+  fill: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+.door-hinge {
+  position: absolute;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  left: 0;
+  z-index: 3;
+  width: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 55%, var(--text));
+}
+
+.door-panel,
+.walk-door {
+  color: var(--background);
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--accent) 72%, var(--surface-elevated)),
+    var(--accent) 46%,
+    color-mix(in srgb, var(--accent) 76%, var(--text))
+  );
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-elevated) 42%, transparent);
+}
+
+.door-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.door-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.door-handle {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  width: 0.34rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--background) 78%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-elevated) 70%, transparent);
+  transform: translateY(-50%);
+}
+
+.door-label {
+  position: relative;
+  z-index: 5;
+  min-height: 1.5rem;
+  margin: 1.15rem 0 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0;
+}
+
+.door-label.is-shown {
+  opacity: 1;
+}
+
+.door-panel.is-revealed {
+  opacity: 0;
+}
+
+.walk-door {
+  position: fixed;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .door-scroller {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16vw;
+    scrollbar-width: none;
+  }
+
+  .door-scroller::-webkit-scrollbar {
+    display: none;
+  }
+
+  .door-row {
+    flex: 0 0 auto;
+    width: max-content;
+    margin: 0;
+    padding-inline: 16vw;
+  }
+
+  .door-row > li {
+    flex: 0 0 68vw;
+    width: 68vw;
+    scroll-snap-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-drift-a {
+    animation: home-drift-a 32s ease-in-out infinite alternate;
+  }
+
+  .home-drift-b {
+    animation: home-drift-b 38s ease-in-out infinite alternate;
+  }
+
+  .door-stage {
+    transition: box-shadow var(--duration) ease;
+  }
+
+  .door-card.is-open .door-stage {
+    box-shadow: 0 18px 36px -16px color-mix(in srgb, var(--text) 34%, transparent);
+  }
+}
+
+@keyframes home-drift-a {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(7vw, 5vh, 0);
+  }
+}
+
+@keyframes home-drift-b {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-6vw, -4vh, 0);
+  }
+}

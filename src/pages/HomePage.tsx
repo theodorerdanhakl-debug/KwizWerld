@@ -1,25 +1,30 @@
-import { Link } from 'react-router-dom'
-import { Card } from '../components/Card'
-import { PageLayout } from '../components/PageLayout'
+import { useEffect } from 'react'
+import { DoorHall } from '../components/DoorHall'
+import { TopNav } from '../components/TopNav'
 import { getSubjects } from '../data/content'
+import { useSessionStore } from '../store/session'
 
 export function HomePage() {
-  const subjects = getSubjects()
+  const username = useSessionStore((state) => state.profile?.username)
+
+  useEffect(() => {
+    document.title = 'Home · KwizWerld!'
+  }, [])
 
   return (
-    <PageLayout title="Pick a subject" lede="Learn it, study it, then practice.">
-      <ul className="flex flex-col gap-5">
-        {subjects.map((subject) => (
-          <li key={subject.id}>
-            <Card padded={false} className="transition-base hover:bg-surface-elevated">
-              <Link to={`/subject/${subject.id}`} className="block p-6">
-                <h2 className="text-2xl">{subject.name}</h2>
-                <p className="mt-2 text-muted">{subject.summary}</p>
-              </Link>
-            </Card>
-          </li>
-        ))}
-      </ul>
-    </PageLayout>
+    <div className="home-hall">
+      <div className="home-drift" aria-hidden="true">
+        <span className="home-drift-blob home-drift-a" />
+        <span className="home-drift-blob home-drift-b" />
+      </div>
+      <a className="skip-link" href="#content">
+        Skip to content
+      </a>
+      <TopNav />
+      <main id="content" tabIndex={-1} className="home-main">
+        <h1 className="home-greeting">{username ? `Hello, ${username}.` : 'Hello.'}</h1>
+        <DoorHall subjects={getSubjects()} />
+      </main>
+    </div>
   )
 }
