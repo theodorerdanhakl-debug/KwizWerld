@@ -766,3 +766,106 @@ html.reduce-motion .switch-thumb {
     transform: translate3d(-6vw, -4vh, 0);
   }
 }
+
+.subject-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+.subject-back:hover,
+.subject-back:focus-visible {
+  color: var(--text);
+}
+
+.subject-back-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.recommend-card {
+  display: block;
+  min-height: 8.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 1.25rem 1.35rem;
+  color: inherit;
+}
+
+.mode-card {
+  display: flex;
+  height: 100%;
+  min-height: 16rem;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  padding: 1.75rem 1.5rem 1.5rem;
+  color: inherit;
+  box-shadow: var(--elev-shadow);
+}
+
+.mode-icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface-elevated));
+  color: var(--accent);
+}
+
+.mode-glyph {
+  width: 1.55rem;
+  height: 1.55rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mode-card-title {
+  margin: 1.5rem 0 0;
+  font-size: 1.85rem;
+  font-weight: 600;
+}
+
+.mode-card-detail {
+  margin: 0.4rem 0 0;
+  color: var(--muted-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .subject-back,
+  .recommend-card,
+  .mode-card {
+    transition:
+      color var(--duration) ease,
+      background-color var(--duration) ease,
+      border-color var(--duration) ease,
+      box-shadow var(--duration) ease;
+  }
+
+  .recommend-card:hover,
+  .recommend-card:focus-visible {
+    border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+    background: var(--surface-elevated);
+  }
+
+  .mode-card:hover,
+  .mode-card:focus-visible {
+    border-color: color-mix(in srgb, var(--accent) 48%, var(--border));
+    box-shadow:
+      0 1px 1px color-mix(in srgb, var(--text) 5%, transparent),
+      0 22px 36px -18px color-mix(in srgb, var(--accent) 42%, transparent);
+  }
+}

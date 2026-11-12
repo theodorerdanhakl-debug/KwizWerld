@@ -2,16 +2,16 @@
   {
     "id": "learn",
     "label": "Learn",
-    "summary": "Start with a short lesson."
+    "summary": "Work through a short lesson."
   },
   {
     "id": "study",
     "label": "Study",
-    "summary": "Go back over the idea."
+    "summary": "Flip through flashcards."
   },
   {
     "id": "practice",
     "label": "Practice",
-    "summary": "Try a few problems."
+    "summary": "Answer a few questions."
   }
 ]
