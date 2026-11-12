@@ -9,8 +9,10 @@ import {
   type PracticeQuestion,
   type TopicActivity,
 } from '../data/activities'
+import { recordAttempt } from '../supabase/attempts'
 import { awardRewards } from '../supabase/awardRewards'
 import { cn } from '../utils/cn'
+import { elapsedSeconds } from '../utils/recommendations'
 
 export type PracticeSessionProps = {
   activity: TopicActivity
@@ -47,12 +49,20 @@ export function PracticeSession({ activity, backHref }: PracticeSessionProps) {
   const [roundSize, setRoundSize] = useState(activity.practice.questions.length)
   const awarded = useRef(false)
   const rewardKey = useRef(crypto.randomUUID())
+  const startedAt = useRef(Date.now())
   const total = roundSize
   const canCheck = current.type === 'typed' ? typed.trim().length > 0 : choice !== null
 
   function award(score: number) {
     if (awarded.current) return
     awarded.current = true
+    void recordAttempt({
+      idempotencyKey: rewardKey.current,
+      topicId: activity.topicId,
+      mode: 'practice',
+      score,
+      durationSeconds: elapsedSeconds(startedAt.current, Date.now()),
+    })
     void awardRewards('practice', {
       idempotencyKey: rewardKey.current,
       topicId: activity.topicId,
@@ -92,6 +102,7 @@ export function PracticeSession({ activity, backHref }: PracticeSessionProps) {
     const nextDeal = deal(missed)
     rewardKey.current = crypto.randomUUID()
     awarded.current = false
+    startedAt.current = Date.now()
     setRoundSize(missed.length)
     setCurrent(nextDeal.current)
     setRest(nextDeal.rest)

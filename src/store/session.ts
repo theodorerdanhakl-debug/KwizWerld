@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { clearAttempts, loadAttempts } from '../supabase/attempts'
 import { getSupabase } from '../supabase/client'
 import { deleteOwnAccount, fetchProfile, updateProfile, type Profile, type ProfilePatch } from '../supabase/profile'
 import { useEconomyStore } from './economy'
@@ -37,6 +38,7 @@ function applyProfile(profile: Profile): void {
 
 function clearAccount(): void {
   loadId += 1
+  clearAttempts()
   applyReducedMotion(false)
   applySoundPreferences(true, true)
   useEconomyStore.getState().replaceFromServer({ exp: null, diamonds: null })
@@ -108,6 +110,7 @@ export function initSession(): void {
   started = true
   const supabase = getSupabase()
   if (!supabase) {
+    clearAttempts()
     useSessionStore.setState({ status: 'ready', configured: false })
     return
   }
@@ -122,6 +125,7 @@ export function initSession(): void {
     }
     if (useSessionStore.getState().userId === userId && useSessionStore.getState().profile) return
     useSessionStore.setState({ status: 'loading', userId, error: null })
+    void loadAttempts()
     window.setTimeout(() => {
       void loadProfile(userId)
     }, 0)

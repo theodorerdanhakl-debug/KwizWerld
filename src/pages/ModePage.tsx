@@ -8,13 +8,16 @@ import { BackLink, SubjectShell } from '../components/SubjectShell'
 import { TopicCard } from '../components/TopicCard'
 import { getMode, getSubject, isGrade, type Grade } from '../data/content'
 import { getTopics } from '../data/curriculum'
+import { useProgressStore } from '../store/progress'
 import { useSessionStore } from '../store/session'
+import { masteryFor } from '../utils/recommendations'
 
 export function ModePage() {
   const params = useParams()
   const subject = getSubject(params.subjectId ?? '')
   const mode = getMode(params.mode ?? '')
   const profileGrade = useSessionStore((state) => state.profile?.gradeLevel)
+  const attempts = useProgressStore((state) => state.attempts)
   const [grade, setGrade] = useState<Grade>(profileGrade && isGrade(profileGrade) ? profileGrade : 'K')
   const [search, setSearch] = useState('')
 
@@ -75,7 +78,11 @@ export function ModePage() {
         <ul className="topic-grid">
           {topics.map((item) => (
             <li key={item.id}>
-              <TopicCard topic={item} href={`/subject/${subject.id}/${mode.id}/${item.id}`} />
+              <TopicCard
+                topic={item}
+                href={`/subject/${subject.id}/${mode.id}/${item.id}`}
+                mastery={masteryFor(attempts.filter((attempt) => attempt.topicId === item.id))}
+              />
             </li>
           ))}
         </ul>

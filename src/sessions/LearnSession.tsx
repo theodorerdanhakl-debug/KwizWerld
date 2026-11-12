@@ -4,8 +4,10 @@ import { Confetti, RewardBurst } from '../components/RewardBurst'
 import { LessonFigure } from '../components/LessonFigure'
 import { ProgressBar } from '../components/ProgressBar'
 import type { TopicActivity } from '../data/activities'
+import { recordAttempt } from '../supabase/attempts'
 import { awardRewards } from '../supabase/awardRewards'
 import { cn } from '../utils/cn'
+import { elapsedSeconds } from '../utils/recommendations'
 
 export type LearnSessionProps = {
   activity: TopicActivity
@@ -21,6 +23,7 @@ export function LearnSession({ activity, backHref }: LearnSessionProps) {
   const [done, setDone] = useState(false)
   const awarded = useRef(false)
   const rewardKey = useRef(crypto.randomUUID())
+  const startedAt = useRef(Date.now())
   const step = steps[index]
   const onCheck = index >= steps.length
   const correct = choice === activity.learn.check.answer
@@ -29,10 +32,18 @@ export function LearnSession({ activity, backHref }: LearnSessionProps) {
     if (awarded.current) return
     awarded.current = true
     setDone(true)
+    const score = correct ? 1 : 0
+    void recordAttempt({
+      idempotencyKey: rewardKey.current,
+      topicId: activity.topicId,
+      mode: 'learn',
+      score,
+      durationSeconds: elapsedSeconds(startedAt.current, Date.now()),
+    })
     void awardRewards('learn', {
       idempotencyKey: rewardKey.current,
       topicId: activity.topicId,
-      score: correct ? 1 : 0,
+      score,
     })
   }
 

@@ -67,6 +67,34 @@ export type Database = {
         Update: Record<string, never>
         Relationships: []
       }
+      activity_attempts: {
+        Row: {
+          id: string
+          user_id: string
+          subject: string
+          topic_id: string
+          grade: string
+          mode: string
+          score: number
+          duration_seconds: number
+          created_at: string
+          idempotency_key: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          subject: string
+          topic_id: string
+          grade: string
+          mode: string
+          score: number
+          duration_seconds: number
+          created_at?: string
+          idempotency_key: string
+        }
+        Update: Record<string, never>
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: {
@@ -76,6 +104,16 @@ export type Database = {
       }
       award_rewards: {
         Args: { source: string; metadata: Json }
+        Returns: Json
+      }
+      record_attempt: {
+        Args: {
+          topic_id: string
+          mode: string
+          score: number
+          duration_seconds: number
+          idempotency_key: string
+        }
         Returns: Json
       }
     }
