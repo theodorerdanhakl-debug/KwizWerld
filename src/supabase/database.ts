@@ -95,6 +95,24 @@ export type Database = {
         Update: Record<string, never>
         Relationships: []
       }
+      game_stats: {
+        Row: {
+          user_id: string
+          game_id: string
+          best_score: number
+          plays: number
+          updated_at: string
+        }
+        Insert: {
+          user_id: string
+          game_id: string
+          best_score: number
+          plays: number
+          updated_at?: string
+        }
+        Update: Record<string, never>
+        Relationships: []
+      }
       leaderboard_scores: {
         Row: {
           user_id: string
@@ -134,6 +152,10 @@ export type Database = {
       }
       leaderboard: {
         Args: { board: string }
+        Returns: Json
+      }
+      record_game_run: {
+        Args: { game_id: string; score: number }
         Returns: Json
       }
     }

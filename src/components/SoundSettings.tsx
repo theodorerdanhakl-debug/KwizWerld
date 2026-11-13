@@ -30,7 +30,7 @@ export function SoundSettings() {
   }
 
   return (
-    <SettingsSection title="Sound" lede="Sound effects and music stay off until a game uses them.">
+    <SettingsSection title="Sound" lede="Arcade games play sound effects and a quiet loop. Turn either one off here.">
       <div className="flex max-w-md flex-col gap-6">
         <Switch
           label="Sound effects"

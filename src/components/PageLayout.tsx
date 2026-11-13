@@ -8,7 +8,7 @@ export type PageLayoutProps = {
   title: string
   lede: string
   subjectId?: SubjectId
-  width?: 'default' | 'wide'
+  width?: 'default' | 'wide' | 'full'
   children?: ReactNode
 }
 
@@ -29,7 +29,10 @@ export function PageLayout({ title, lede, subjectId, width = 'default', children
       <main
         id="content"
         tabIndex={-1}
-        className={cn('mx-auto w-full px-6 py-16 outline-none', width === 'wide' ? 'max-w-3xl' : 'max-w-xl')}
+        className={cn(
+          'mx-auto w-full px-6 py-16 outline-none',
+          width === 'full' ? 'max-w-5xl' : width === 'wide' ? 'max-w-3xl' : 'max-w-xl',
+        )}
       >
         <FadeIn>
           <h1 className="text-balance text-4xl font-semibold">{title}</h1>
