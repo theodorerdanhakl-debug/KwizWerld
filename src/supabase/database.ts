@@ -95,6 +95,22 @@ export type Database = {
         Update: Record<string, never>
         Relationships: []
       }
+      leaderboard_scores: {
+        Row: {
+          user_id: string
+          window_kind: string
+          window_start: string
+          exp: number
+        }
+        Insert: {
+          user_id: string
+          window_kind: string
+          window_start: string
+          exp: number
+        }
+        Update: Record<string, never>
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: {
@@ -114,6 +130,10 @@ export type Database = {
           duration_seconds: number
           idempotency_key: string
         }
+        Returns: Json
+      }
+      leaderboard: {
+        Args: { board: string }
         Returns: Json
       }
     }
