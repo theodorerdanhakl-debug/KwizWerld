@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from 'react'
 import type { SubjectId } from '../data/content'
+import { cn } from '../utils/cn'
 import { FadeIn } from './FadeIn'
 import { TopNav } from './TopNav'
 
@@ -7,10 +8,11 @@ export type PageLayoutProps = {
   title: string
   lede: string
   subjectId?: SubjectId
+  width?: 'default' | 'wide'
   children?: ReactNode
 }
 
-export function PageLayout({ title, lede, subjectId, children }: PageLayoutProps) {
+export function PageLayout({ title, lede, subjectId, width = 'default', children }: PageLayoutProps) {
   useEffect(() => {
     document.title = `${title} · KwizWerld!`
   }, [title])
@@ -24,7 +26,11 @@ export function PageLayout({ title, lede, subjectId, children }: PageLayoutProps
         Skip to content
       </a>
       <TopNav />
-      <main id="content" tabIndex={-1} className="mx-auto w-full max-w-xl px-6 py-16 outline-none">
+      <main
+        id="content"
+        tabIndex={-1}
+        className={cn('mx-auto w-full px-6 py-16 outline-none', width === 'wide' ? 'max-w-3xl' : 'max-w-xl')}
+      >
         <FadeIn>
           <h1 className="text-balance text-4xl font-semibold">{title}</h1>
           <p className="mt-4 text-pretty text-lg text-muted">{lede}</p>
