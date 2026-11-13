@@ -67,7 +67,15 @@ function metadataJson(metadata: RewardMetadata): Json {
   return body
 }
 
-export async function awardRewards(source: string, metadata: RewardMetadata): Promise<RewardGrant | null> {
+export type AwardOptions = {
+  announce?: boolean
+}
+
+export async function awardRewards(
+  source: string,
+  metadata: RewardMetadata,
+  options?: AwardOptions,
+): Promise<RewardGrant | null> {
   if (!sourcePattern.test(source) || !Number.isFinite(metadata.score)) return null
   const supabase = getSupabase()
   if (!supabase) return null
@@ -78,7 +86,14 @@ export async function awardRewards(source: string, metadata: RewardMetadata): Pr
   if (error) return null
   const grant = parseGrant(data, metadata.idempotencyKey)
   if (!grant) return null
-  useEconomyStore.getState().presentGrant(grant)
+  if (options?.announce === false) {
+    useEconomyStore.getState().replaceFromServer({
+      exp: grant.totalExp,
+      diamonds: grant.totalDiamonds,
+    })
+  } else {
+    useEconomyStore.getState().presentGrant(grant)
+  }
   const profile = useSessionStore.getState().profile
   if (profile) {
     useSessionStore.setState({
@@ -97,7 +112,8 @@ export async function awardGameRewards(
   gameId: string,
   score: number,
   idempotencyKey: string,
+  options?: AwardOptions,
 ): Promise<RewardGrant | null> {
   if (!getGame(gameId)) return null
-  return awardRewards(`game:${gameId}`, { score, idempotencyKey })
+  return awardRewards(`game:${gameId}`, { score, idempotencyKey }, options)
 }
